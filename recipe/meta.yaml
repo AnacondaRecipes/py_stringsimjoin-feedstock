@@ -1,18 +1,18 @@
+{% set name = "py_stringsimjoin" %}
 {% set version = "0.3.2" %}
 {% set sha256 = "a41aa3d0b3520333b7a38132fd1e6f5f9b3421be64f964e644ff7544cacbc89b" %}
 
 package:
-  name: py_stringsimjoin
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/py_stringsimjoin/py_stringsimjoin-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/p/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
-  skip: true  # [not x86_64]
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
@@ -23,12 +23,13 @@ requirements:
     - python
     - pip
     - setuptools
+    - wheel
     - cython
-    - pandas
+    - pandas >=0.16.0
     - six
     - joblib
-    - pyprind
-    - py_stringmatching
+    - pyprind >=2.9.3
+    - py_stringmatching >=0.2.1
   run:
     - python
     - six
@@ -40,6 +41,10 @@ requirements:
 test:
   imports:
     - py_stringsimjoin
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://sites.google.com/site/anhaidgroup/projects/py_stringsimjoin
