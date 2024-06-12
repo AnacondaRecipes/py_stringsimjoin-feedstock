@@ -1,14 +1,16 @@
 {% set name = "py_stringsimjoin" %}
-{% set version = "0.3.2" %}
-{% set sha256 = "a41aa3d0b3520333b7a38132fd1e6f5f9b3421be64f964e644ff7544cacbc89b" %}
+{% set version = "0.3.5" %}
+{% set sha256 = "e8b5a805c991ceb7d72ecefb3d20808dd25bdb0efac14ac415c74cad56b52ce4" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  # Using the GH archive as it contains the .pxd (and not the .cpp)
+  # files required for Cython
+  url: https://github.com/anhaidgroup/py_stringsimjoin/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 9a129b6ba1f5670164c13ac0bac4bab50eb0b6080080f22a225d17ff6721887e
 
 build:
   number: 0
@@ -47,7 +49,7 @@ test:
     - pip check
 
 about:
-  home: https://sites.google.com/site/anhaidgroup/projects/py_stringsimjoin
+  home: https://sites.google.com/site/anhaidgroup/current-projects/magellan/py_stringsimjoin
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
@@ -57,7 +59,7 @@ about:
     scalable implementation of string similarity joins over two tables,
     for commonly used similarity measures such as Jaccard, Dice, cosine,
     overlap, overlap coefficient and edit distance. 
-  doc_url: http://anhaidgroup.github.io/py_stringsimjoin/
+  doc_url: https://anhaidgroup.github.io/py_stringsimjoin/
   dev_url: https://github.com/anhaidgroup/py_stringsimjoin
 
 extra:
