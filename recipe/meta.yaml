@@ -81,3 +81,5 @@ about:
 extra:
   recipe-maintainers:
     - pjmartinkus
+  skip-lints:
+    - host_section_needs_exact_pinnings
