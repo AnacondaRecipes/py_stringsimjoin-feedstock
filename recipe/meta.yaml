@@ -40,7 +40,7 @@ requirements:
     - pyprind >=2.9.3
     - py_stringmatching >=0.2.1
 
-{% set tests_to_ignore = "'" %}
+{% set tests_to_ignore = "\"" %}
 # test_valid_join is called three times and results in, inter alia:
 # E       fixture 'scenario' not found
 # >       available fixtures: cache, capfd, capfdbinary, caplog,
@@ -50,7 +50,7 @@ requirements:
 #           tmpdir, tmpdir_factory
 # >       use 'pytest --fixtures [testpath]' for help on them.
 {% set tests_to_ignore = tests_to_ignore + "not test_valid_join " %}
-{% set tests_to_ignore = tests_to_ignore + "'" %}
+{% set tests_to_ignore = tests_to_ignore + "\"" %}
 
 test:
   source_files:
