@@ -36,14 +36,7 @@ requirements:
     - py_stringmatching >=0.2.1
 
 {% set tests_to_ignore = "\"" %}
-# test_valid_join is called three times and results in, inter alia:
-# E       fixture 'scenario' not found
-# >       available fixtures: cache, capfd, capfdbinary, caplog,
-#           capsys, capsysbinary, doctest_namespace, monkeypatch,
-#           pytestconfig, record_property, record_testsuite_property,
-#           record_xml_attribute, recwarn, tmp_path, tmp_path_factory,
-#           tmpdir, tmpdir_factory
-# >       use 'pytest --fixtures [testpath]' for help on them.
+# skip test_valid_join (in 3 test files), marked @unittest.skip("Not a test")
 {% set tests_to_ignore = tests_to_ignore + "not test_valid_join " %}
 {% set tests_to_ignore = tests_to_ignore + "\"" %}
 
